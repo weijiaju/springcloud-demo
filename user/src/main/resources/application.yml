@@ -1,9 +1,17 @@
+spring:
+    application:
+        name: user
+    cloud:
+        config:
+            label: ${config.label:master}
+            profile: ${config.profile:dev}
+            uri: http://localhost:8888/
+            discovery:
+                enabled: ${config.discovery.enabled:true}
+                serviceId: config-server
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:9999/eureka/
 server:
   port: 8880
-spring:
-  application:
-    name: user
